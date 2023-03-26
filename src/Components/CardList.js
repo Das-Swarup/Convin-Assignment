@@ -1,12 +1,8 @@
 import React from "react";
 import Card from "./Card";
 
-function CardList({ cards, onDelete, onUpdate, onEdit, onDeleteBucket }) {
+function CardList({ cards, onDelete, onUpdate, onEdit }) {
   const buckets = [...new Set(cards.map((card) => card.bucket))];
-
-  const handleDeleteBucket = (bucket) => {
-    onDeleteBucket(bucket);
-  };
 
   const handleDeleteCard = (id) => {
     onDelete(id);
@@ -16,10 +12,7 @@ function CardList({ cards, onDelete, onUpdate, onEdit, onDeleteBucket }) {
     <div>
       {buckets.map((bucket) => (
         <div key={bucket}>
-          <h2>{bucket}</h2>
-          <button onClick={() => handleDeleteBucket(bucket)}>
-            Delete Bucket
-          </button>
+          <h2>Bucket:{bucket}</h2>
           <div className="cardlist">
             {cards
               .filter((card) => card.bucket === bucket)

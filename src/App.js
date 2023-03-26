@@ -7,11 +7,8 @@ import History from "./Components/History";
 function App() {
   const [cards, setCards] = useState([]);
   const [isCreating, setIsCreating] = useState(false);
-  const [isEditing, setIsEditing] = useState(null);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [selectedBucket, setSelectedBucket] = useState(null);
-  const [selectedCards, setSelectedCards] = useState([]);
-  const [modalContent, setModalContent] = useState(null);
+
+
 
   useEffect(() => {
     fetch("http://localhost:3000/cards")
@@ -55,27 +52,7 @@ function App() {
     );
   };
 
-  const handleDeleteBucket = (bucket) => {
-    setSelectedBucket(bucket);
-    setSelectedCards(cards.filter((card) => card.bucket === bucket));
-    setIsDeleting(true);
-  };
 
-  const handleConfirmDelete = () => {
-    selectedCards.forEach((card) => handleDeleteCard(card.id));
-    setIsDeleting(false);
-    setSelectedBucket(null);
-    setSelectedCards([]);
-    setModalContent(null);
-  };
-
-  const handleCancelDelete = () => {
-    setIsDeleting(false);
-    setSelectedBucket(null);
-    setSelectedCards([]);
-    setModalContent(null);
-  };
-  
   return (
     <div className="app-container">
       <div className="app">
@@ -90,7 +67,7 @@ function App() {
           onDelete={handleDeleteCard}
           onUpdate={handleUpdateCard}
           onEdit={handleEditCard}
-          onDeleteBucket={handleDeleteBucket}
+
         />
       </div>
 
