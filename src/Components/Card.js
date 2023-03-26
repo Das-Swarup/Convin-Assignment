@@ -25,10 +25,6 @@ function Card({ card, onDelete, onUpdate, onEdit, onDeleteBucket }) {
         setIsEditing(true);
     };
 
-    const handleDeleteBucket = () => {
-        onDeleteBucket(card.bucket);
-    };
-
     const handleCardClick = () => {
         setShowModal(true);
     };
@@ -70,7 +66,7 @@ function Card({ card, onDelete, onUpdate, onEdit, onDeleteBucket }) {
                     <div className="modal">
                         <div className="modal-content">
                         <span className="close" onClick={handleCloseModal}>&times;</span>
-                            <iframe src={card.media}></iframe> 
+                            <iframe src={card.media} title={card.name}></iframe> 
                         </div>
                     </div>
                 )}
