@@ -80,13 +80,13 @@ function App() {
   console.log(isCreating);
 
   return (
-    <div>
-      <div>
+    <div className="app-container">
+      <div className="app">
         <h1>My Cards</h1>
-        <button onClick={()=>setIsCreating(true)}>Add Card</button>
+        <button className="home-btn" onClick={()=>setIsCreating(true)}>Add Card</button>
         {isCreating ?<>
           <CreateCard onCreate={handleCreateCard} />
-        <button onClick={()=>setIsCreating(false)}>Cancel</button>
+        <button className="home-btn" onClick={()=>setIsCreating(false)}>Cancel</button>
         </>  : <></>}
         <CardList
           cards={cards}

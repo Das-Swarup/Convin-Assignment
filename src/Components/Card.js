@@ -39,7 +39,8 @@ function Card({ card, onDelete, onUpdate, onEdit, onDeleteBucket }) {
 
     if (isEditing) {
         return (
-            <form onSubmit={handleUpdate}>
+            <form onSubmit={handleUpdate} className="card">
+                <div  className="card-content">
                 <label>Name:</label>
                 <input value={name} onChange={(e) => setName(e.target.value)} />
                 <br />
@@ -49,6 +50,7 @@ function Card({ card, onDelete, onUpdate, onEdit, onDeleteBucket }) {
                 <label>Bucket:</label>
                 <input value={bucket} onChange={(e) => setBucket(e.target.value)} />
                 <br />
+                </div>
                 <button type="submit">Save</button>
                 <button onClick={handleCancel}>Cancel</button>
             </form>
@@ -56,17 +58,19 @@ function Card({ card, onDelete, onUpdate, onEdit, onDeleteBucket }) {
     } else {
         return (
             <div className='card'>
+                <div onClick={handleCardClick} className="card-content">
                 <h3 onClick={handleCardClick}>Name: {card.name}</h3>
                 <p onClick={handleCardClick}>Media: {card.media}</p>
                 <p onClick={handleCardClick}>Bucket: {card.bucket}</p>
+                </div>
                 <button onClick={handleEdit}>Edit</button>
                 <button onClick={handleDelete}>Delete</button>
                 {/* <button onClick={handleDeleteBucket}>Delete Bucket</button> */}
                 {showModal && (
                     <div className="modal">
                         <div className="modal-content">
-                            <iframe src={card.media}></iframe>
-                            <span className="close" onClick={handleCloseModal}>&times;</span>
+                        <span className="close" onClick={handleCloseModal}>&times;</span>
+                            <iframe src={card.media}></iframe> 
                         </div>
                     </div>
                 )}

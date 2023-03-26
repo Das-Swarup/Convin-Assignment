@@ -34,7 +34,7 @@ function CreateCard({ onCreate }) {
         <label>Bucket:</label>
         <input value={bucket} onChange={(e) => setBucket(e.target.value)} />
         <br />
-        <button type="submit">Create</button>
+        <button className='home-btn' type="submit">Create</button>
       </form>
     );
   }
