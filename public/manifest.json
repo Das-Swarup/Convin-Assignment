@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Media Card App",
+  "name": "Media Card App made using React and JSON server",
   "icons": [
     {
       "src": "favicon.ico",

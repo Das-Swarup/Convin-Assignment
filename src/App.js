@@ -75,10 +75,7 @@ function App() {
     setSelectedCards([]);
     setModalContent(null);
   };
-
-  const createCardButton = <CreateCard onCreate={handleCreateCard} />;
-  console.log(isCreating);
-
+  
   return (
     <div className="app-container">
       <div className="app">
